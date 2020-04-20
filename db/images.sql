@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 03:02 PM
+-- Generation Time: Apr 20, 2020 at 04:29 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `images` (
   `image_id` int(11) NOT NULL,
-  `url` text COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_front` text COLLATE utf8_unicode_ci NOT NULL,
+  `url_back` text COLLATE utf8_unicode_ci NOT NULL,
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -38,9 +38,8 @@ CREATE TABLE `images` (
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`image_id`, `url`, `type`, `member_id`) VALUES
-(1, './images/20190626-153433_f.jpg', 'front', 1),
-(2, './images/20190829-155819_c.jpg', 'back', 1);
+INSERT INTO `images` (`image_id`, `url_front`, `url_back`, `member_id`) VALUES
+(1, 'default_front', 'default_back', 1);
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,7 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`member_id`, `member_firstname`, `member_lastname`) VALUES
-(1, 'sdfgsdf', 'gsdfgsdfg');
+(1, 'Admin', 'Administrator');
 
 --
 -- Indexes for dumped tables
@@ -85,7 +84,7 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `members`

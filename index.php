@@ -19,8 +19,10 @@
                     <tbody>
 
                 <?php
+                    $db_connect = new db_connect();
+                    $connect = $db_connect->connect();
                     $sql = "select * from members";
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($connect, $sql);
                     if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
                             $id = $row['member_id'];

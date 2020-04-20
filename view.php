@@ -30,7 +30,7 @@ $id = $_GET["id"];
             var formData = new FormData($('#image_front_form')[0])
             $.ajax({
                 type: "post",
-                url: "upload_image_front.php?id=<?=$id?>",
+                url: "upload.php?id=<?=$id?>&side=front&action=image",
                 data: formData,
                 dataType:"json",
                 contentType: false,
@@ -47,7 +47,8 @@ $id = $_GET["id"];
     })
 </script>
     <?php
-       
+        $db_connect = new db_connect();
+        $connect = $db_connect->connect();
         $sql = "select  
             members.member_id, 
             members.member_firstname as firstname,
@@ -56,7 +57,7 @@ $id = $_GET["id"];
             images.url_front, 
             images.url_back 
         from members inner join images on images.member_id = members.member_id where members.member_id = '$id'";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($connect, $sql);
         while($row = mysqli_fetch_assoc($result)) {
             $url_front = "./images/default_card_id/default_front.jpg";
             $url_back = "./images/default_card_id/default_back.jpg";

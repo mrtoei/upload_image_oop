@@ -36,10 +36,10 @@ $id = $_GET["id"];
                 contentType: false,
                 cache: false,
                 processData:false,
-                success: function (data) {
-                    data.forEach(path => {
-                        $("#show_image_front").append("<img src='"+path+"' >")
-                    });              
+                success: function (path) {
+                    // console.log(data);
+                   
+                    $("#show_image_front").append("<img src='"+path+"' >")           
                 }
             });
         })
@@ -113,7 +113,7 @@ $id = $_GET["id"];
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6" id="show_image_front">
+                <div class="col-md-6" id="show_image_front_before">
                     <img src="<?=$url_front?>">
                 </div>
                 <div class="col-md-6" id="show_image_back">
